@@ -21,11 +21,7 @@ if (options['sentinels'] != nil && options['sentinels'].is_a?(Array) && options[
       :port => conf[1].to_i
     })
   end
-  
-  puts sentinels
-  puts options['master']
-  puts options['db']
-  
+    
   Resque.redis = Redis.new(
     :url => "redis://" + options['master'],
     :sentinels => sentinels,
